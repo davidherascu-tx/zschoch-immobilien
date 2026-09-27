@@ -1,26 +1,144 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-brand-50: #eef5f1;
+  --color-brand-100: #d5e6dc;
+  --color-brand-200: #a9ccb8;
+  --color-brand-500: #2b6b50;
+  --color-brand-700: #0f5a3f;
+  --color-brand-800: #0a4832;
+  --color-brand-900: #073524;
+  --color-stone-brand: #a7a6a6;
+  --color-sand: #f7f5f1;
+
+  --font-sans: var(--font-inter-tight);
+  --font-serif: var(--font-instrument-serif);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: #ffffff;
+  color: #0a0a0a;
+}
+
+::selection {
+  background: var(--color-brand-200);
+}
+
+/* ---------- Animationen ---------- */
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes glow {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: translate(-50%, -50%) scale(1.08);
+  }
+}
+
+@keyframes progress {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes menu-in {
+  from {
+    opacity: 0;
+    transform: translateY(-8px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.animate-fade-up {
+  opacity: 0;
+  animation: fade-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.animate-draw {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: draw 3.5s 0.3s ease-in-out forwards;
+}
+
+.animate-glow {
+  animation: glow 7s ease-in-out infinite;
+}
+
+.animate-progress {
+  animation: progress 6s linear forwards;
+}
+
+.animate-menu-in {
+  animation: menu-in 0.35s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Scroll-Reveal (siehe components/Reveal.tsx) */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition:
+    opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .animate-fade-up,
+  .reveal {
+    opacity: 1;
+    transform: none;
+    animation: none;
+    transition: none;
+  }
+  .animate-draw {
+    stroke-dashoffset: 0;
+    animation: none;
+  }
+  .animate-glow {
+    animation: none;
+    transform: translate(-50%, -50%);
+  }
+  .animate-menu-in,
+  .animate-progress {
+    animation: none;
+  }
 }
