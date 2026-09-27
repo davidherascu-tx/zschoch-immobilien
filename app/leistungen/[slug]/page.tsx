@@ -46,32 +46,25 @@ export default async function ServicePage(props: PageProps<"/leistungen/[slug]">
       {/* Kopf */}
       <section className="bg-white pt-32 md:pt-40">
         <div className="mx-auto max-w-6xl px-5">
-          <nav aria-label="Brotkrumen" className="animate-fade-up text-sm text-neutral-500">
-            <Link href="/" className="hover:text-neutral-950">Start</Link>
-            <span className="mx-2">/</span>
-            <Link href="/#leistungen" className="hover:text-neutral-950">Leistungen</Link>
-            <span className="mx-2">/</span>
-            <span className="text-neutral-950">{service.title}</span>
-          </nav>
+          <div className="animate-fade-up flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+            <nav aria-label="Brotkrumen" className="text-sm text-neutral-500">
+              <Link href="/" className="hover:text-neutral-950">Start</Link>
+              <span className="mx-2">/</span>
+              <Link href="/#leistungen" className="hover:text-neutral-950">Leistungen</Link>
+              <span className="mx-2">/</span>
+              <span className="text-neutral-950">{service.title}</span>
+            </nav>
 
-          <div className="mt-8 flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
-            <h1 className="animate-fade-up text-5xl font-semibold leading-[1.02] tracking-[-0.04em] text-neutral-950 [animation-delay:100ms] sm:text-6xl md:text-7xl">
-              {service.title}
-              <span className="mt-2 block font-serif text-4xl font-normal italic tracking-normal text-neutral-500 sm:text-5xl">
-                {service.claim}
-              </span>
-            </h1>
-
-            <div className="animate-fade-up flex flex-wrap gap-2 [animation-delay:200ms]" role="navigation" aria-label="Leistungen">
+            <div className="flex flex-wrap gap-2 md:flex-nowrap" role="navigation" aria-label="Leistungen">
               {services.map((s) => (
                 <Link
                   key={s.slug}
                   href={`/leistungen/${s.slug}`}
                   aria-current={s.slug === service.slug ? "page" : undefined}
-                  className={`rounded-full px-5 py-2.5 text-sm font-medium transition ${
+                  className={`whitespace-nowrap rounded-full border px-5 py-2.5 text-sm font-medium transition ${
                     s.slug === service.slug
-                      ? "bg-neutral-950 text-white"
-                      : "border border-black/10 text-neutral-700 hover:border-black/40"
+                      ? "border-neutral-950 bg-neutral-950 text-white"
+                      : "border-black/10 text-neutral-700 hover:border-black/40"
                   }`}
                 >
                   {s.title}
@@ -79,6 +72,11 @@ export default async function ServicePage(props: PageProps<"/leistungen/[slug]">
               ))}
             </div>
           </div>
+
+          <h1 className="animate-fade-up mt-10 max-w-4xl text-5xl font-semibold leading-[1.02] tracking-[-0.04em] text-neutral-950 [animation-delay:100ms] sm:text-6xl md:text-7xl">
+            {service.title}
+            <span className="mt-2 block text-neutral-400">{service.claim}</span>
+          </h1>
 
           <div className="animate-fade-up relative mt-12 h-[45vh] min-h-72 overflow-hidden rounded-[2rem] bg-neutral-200 [animation-delay:300ms]">
             <Image
@@ -154,7 +152,7 @@ export default async function ServicePage(props: PageProps<"/leistungen/[slug]">
             <Reveal className="md:sticky md:top-32 md:self-start">
               <Eyebrow>Ablauf</Eyebrow>
               <h2 className="mt-5 text-4xl font-semibold tracking-[-0.03em] text-neutral-950 md:text-5xl">
-                Schritt für <span className="font-serif font-normal italic tracking-normal">Schritt.</span>
+                Schritt für <span className="text-neutral-400">Schritt.</span>
               </h2>
               <p className="mt-5 max-w-xs text-neutral-600">
                 So begleiten wir Sie von den ersten Unterlagen bis zur Übergabe.
@@ -162,11 +160,9 @@ export default async function ServicePage(props: PageProps<"/leistungen/[slug]">
             </Reveal>
 
             <ol className="relative border-l border-black/10">
-              {service.steps.map((step, i) => (
+              {service.steps.map((step) => (
                 <Reveal as="li" key={step.title} className="relative pb-14 pl-10 last:pb-0">
-                  <span className="absolute -left-4 top-0 flex h-8 w-8 items-center justify-center rounded-full border border-black/10 bg-white font-mono text-xs text-neutral-600">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
+                  <span aria-hidden="true" className="absolute -left-[6px] top-3 h-3 w-3 rounded-full bg-neutral-950 ring-4 ring-neutral-50" />
                   <h3 className="text-2xl font-semibold tracking-tight text-neutral-950">{step.title}</h3>
                   <div className="mt-4 space-y-4 leading-relaxed text-neutral-600">
                     {step.text.map((t) => (
@@ -187,15 +183,14 @@ export default async function ServicePage(props: PageProps<"/leistungen/[slug]">
             <Reveal>
               <Eyebrow>Leistungsumfang</Eyebrow>
               <h2 className="mt-5 text-4xl font-semibold tracking-[-0.03em] text-neutral-950 md:text-5xl">
-                Was wir für Sie <span className="font-serif font-normal italic tracking-normal">übernehmen.</span>
+                Was wir für Sie <span className="text-neutral-400">übernehmen.</span>
               </h2>
             </Reveal>
 
             <div className="mt-14 grid gap-5 md:grid-cols-2">
               {service.groups.map((g, i) => (
                 <Reveal key={g.title} delay={(i % 2) * 120} className="rounded-3xl bg-white p-8 ring-1 ring-black/5 md:p-10">
-                  <span className="font-mono text-sm text-neutral-400">{String(i + 1).padStart(2, "0")}</span>
-                  <h3 className="mt-3 text-2xl font-semibold tracking-tight text-neutral-950">{g.title}</h3>
+                  <h3 className="text-2xl font-semibold tracking-tight text-neutral-950">{g.title}</h3>
                   <p className="mt-3 leading-relaxed text-neutral-600">{g.intro}</p>
                   <ul className="mt-6 space-y-3 border-t border-black/5 pt-6">
                     {g.items.map((item) => (
@@ -224,7 +219,7 @@ export default async function ServicePage(props: PageProps<"/leistungen/[slug]">
                 <Eyebrow light>Persönliche Beratung</Eyebrow>
                 <h2 className="mt-5 max-w-xl text-4xl font-semibold tracking-[-0.03em] md:text-5xl">
                   Fragen zur {service.title}?{" "}
-                  <span className="font-serif font-normal italic tracking-normal text-white/70">Sprechen Sie uns an.</span>
+                  <span className="text-white/50">Sprechen Sie uns an.</span>
                 </h2>
               </div>
               <div className="flex flex-wrap gap-3">

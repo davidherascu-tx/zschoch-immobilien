@@ -138,7 +138,7 @@ export const services: Service[] = [
         title: "Kaufvertrag",
         text: [
           "Wir stellen alle für die Kaufvertragserstellung notwendigen Informationen zusammen und lassen die zuvor verhandelten Eckdaten und Bedingungen mit einfließen. Gern schlagen wir Ihnen und dem Kaufinteressenten einen geeigneten Notar vor und lassen nach beiderseitiger Zustimmung einen Kaufvertragsentwurf vorbereiten. Sobald der Entwurf vorliegt, besprechen wir diesen auf Wunsch gern mit Ihnen und dem Kaufinteressenten. Beide Seiten sollen und müssen wissen, was sie bei dem späteren Notartermin unterzeichnen.",
-          "Bitte beachten Sie, dass zwischen der Vorlage des Kaufvertragsentwurfes und dem eigentlichen Notartermin eine Frist von 14 Tagen liegen muss. Dies soll sicherstellen, dass beide Seiten hinreichend Zeit hatten, den Vertrag zu lesen, und es zu keinem „Türklinkengeschäft“ kommt. Natürlich begleiten wir Sie und den Kaufinteressenten bei dem Notartermin, um ggf. aufkommende Fragen oder Unklarheiten beseitigen zu können.",
+          "Bitte beachten Sie: Den Kaufvertragsentwurf erhalten Sie mindestens 14 Tage vor dem eigentlichen Notartermin. Dies soll sicherstellen, dass beide Seiten hinreichend Zeit hatten, den Vertrag zu lesen, und es zu keinem „Türklinkengeschäft“ kommt. Natürlich begleiten wir Sie und den Kaufinteressenten bei dem Notartermin, um ggf. aufkommende Fragen oder Unklarheiten beseitigen zu können.",
         ],
       },
       {

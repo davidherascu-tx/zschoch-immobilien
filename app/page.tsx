@@ -72,7 +72,7 @@ export default function Home() {
 
           <h1 className="animate-fade-up mt-8 max-w-4xl text-5xl font-semibold leading-[1.02] tracking-[-0.04em] text-neutral-950 [animation-delay:100ms] sm:text-6xl md:text-7xl lg:text-8xl">
             Ihre Immobilie in{" "}
-            <span className="whitespace-nowrap font-serif font-normal italic tracking-normal">besten Händen.</span>
+            <span className="whitespace-nowrap text-neutral-400">besten Händen.</span>
           </h1>
 
           <div className="mt-10 flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
@@ -156,7 +156,7 @@ export default function Home() {
           <Reveal className="md:sticky md:top-32 md:self-start">
             <Eyebrow>Leistungen</Eyebrow>
             <h2 className="mt-5 text-4xl font-semibold tracking-[-0.03em] text-neutral-950 md:text-5xl">
-              Alles aus <span className="font-serif font-normal italic tracking-normal">einer Hand.</span>
+              Alles aus <span className="text-neutral-400">einer Hand.</span>
             </h2>
             <p className="mt-5 max-w-xs text-neutral-600">
               Von der ersten Einschätzung bis zur laufenden Betreuung – wir
@@ -167,8 +167,7 @@ export default function Home() {
           <div className="border-t border-black/10">
             {services.map((s, i) => (
               <Reveal as="article" key={s.slug} delay={i * 100} className="border-b border-black/10">
-                <Link href={`/leistungen/${s.slug}`} className="group flex items-baseline gap-6 py-10">
-                  <span className="font-mono text-sm text-neutral-400">0{i + 1}</span>
+                <Link href={`/leistungen/${s.slug}`} className="group flex py-10">
                   <div className="flex-1">
                     <div className="flex items-center justify-between gap-4">
                       <h3 className="text-3xl font-semibold tracking-tight text-neutral-950 transition group-hover:translate-x-2 md:text-4xl">
@@ -206,7 +205,7 @@ export default function Home() {
               <div>
                 <Eyebrow>Aktuelle Angebote</Eyebrow>
                 <h2 className="mt-5 text-4xl font-semibold tracking-[-0.03em] text-neutral-950 md:text-6xl">
-                  Finden Sie Ihr <span className="font-serif font-normal italic tracking-normal">neues Zuhause.</span>
+                  Finden Sie Ihr <span className="text-neutral-400">neues Zuhause.</span>
                 </h2>
                 <p className="mt-5 max-w-lg leading-relaxed text-neutral-600">
                   Wohnungen und Häuser zur Miete und zum Kauf – tagesaktuell in
@@ -265,7 +264,7 @@ export default function Home() {
             <Reveal>
               <Eyebrow light>Ihre Ansprechpartnerin</Eyebrow>
               <h2 className="mt-5 text-4xl font-semibold tracking-[-0.03em] sm:text-6xl">
-                Franziska <span className="font-serif font-normal italic tracking-normal">Zschoch</span>
+                Franziska <span className="text-white/50">Zschoch</span>
               </h2>
               <p className="mt-3 text-white/50">Inhaberin</p>
             </Reveal>
@@ -299,7 +298,7 @@ export default function Home() {
           <Reveal>
             <Eyebrow>Kontakt</Eyebrow>
             <h2 className="mt-5 text-5xl font-semibold tracking-[-0.04em] text-neutral-950 md:text-7xl">
-              Lassen Sie uns <span className="font-serif font-normal italic tracking-normal">sprechen.</span>
+              Lassen Sie uns <span className="text-neutral-400">sprechen.</span>
             </h2>
             <p className="mt-5 max-w-md text-neutral-600">
               Rufen Sie uns an oder schreiben Sie uns – wir melden uns
