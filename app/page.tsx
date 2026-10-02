@@ -292,6 +292,35 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Partner */}
+      <section className="bg-white pt-24 md:pt-32">
+        <div className="mx-auto max-w-6xl px-5">
+          <Reveal className="flex flex-col gap-6 border-y border-black/10 py-10 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+              <Eyebrow>Unser Partner</Eyebrow>
+              <p className="mt-4 text-2xl font-semibold tracking-[-0.02em] text-neutral-950 md:text-3xl">
+                {site.partner.name}
+              </p>
+              <p className="mt-2 max-w-lg leading-relaxed text-neutral-600">
+                Gemeinsam für Ihre Immobilie – mit unserem Partner für
+                umfassenden Service rund um Kauf, Verkauf und Vermietung.
+              </p>
+            </div>
+            <a
+              href={site.partner.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex shrink-0 items-center gap-4 self-start rounded-full border border-black/10 py-2.5 pl-7 pr-2.5 font-medium text-neutral-950 transition hover:border-black/40 sm:self-auto"
+            >
+              Zur Webseite
+              <span className="flex h-10 w-10 items-center justify-center rounded-full bg-neutral-950 text-white transition duration-500 group-hover:rotate-45">
+                <Arrow />
+              </span>
+            </a>
+          </Reveal>
+        </div>
+      </section>
+
       {/* Kontakt */}
       <section id="kontakt" className="bg-white py-24 md:py-32">
         <div className="mx-auto max-w-6xl px-5">

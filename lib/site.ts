@@ -12,6 +12,10 @@ export const site = {
   email: "info@zschoch-immobilien.de",
   web: "https://www.zschoch-immobilien.de",
   immoscoutUrl: "https://portal.immobilienscout24.de/ergebnisliste/69913860",
+  partner: {
+    name: "Haus und Home Immobilien",
+    url: "https://hausundhome.de/",
+  },
   mapsUrl:
     "https://www.google.com/maps/search/?api=1&query=An+der+Koppel+38,+12529+Sch%C3%B6nefeld",
 };

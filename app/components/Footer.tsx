@@ -13,6 +13,17 @@ export default function Footer() {
             Vermietung, Verkauf und Verwaltung von Immobilien in Schönefeld,
             Berlin und Umgebung.
           </p>
+          <p className="mt-4 text-sm">
+            Partner:{" "}
+            <a
+              href={site.partner.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white/80 underline-offset-4 hover:text-white hover:underline"
+            >
+              {site.partner.name}
+            </a>
+          </p>
         </div>
 
         <div className="text-sm leading-relaxed">
