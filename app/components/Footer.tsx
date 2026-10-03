@@ -76,6 +76,37 @@ export default function Footer() {
           <p>
             © {new Date().getFullYear()} {site.name}
           </p>
+          <p className="whitespace-nowrap">
+            Website built with{" "}
+            <svg
+              viewBox="0 0 24 24"
+              className="inline-block h-[1em] w-[1em] align-[-0.12em]"
+              role="img"
+              aria-label="Love"
+            >
+              <defs>
+                <clipPath id="heart-clip">
+                  <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                </clipPath>
+              </defs>
+              <g clipPath="url(#heart-clip)">
+                <rect width="24" height="24" fill="#fff" />
+                {[3, 5.2, 7.4, 9.6, 11.8, 14, 16.2, 18.4, 20.6].map((y, i) =>
+                  i % 2 === 0 ? <rect key={y} y={y} width="24" height="1.1" fill="#B22234" /> : null,
+                )}
+                <rect width="11" height="11.8" fill="#3C3B6E" />
+                <circle cx="3" cy="4" r="0.6" fill="#fff" />
+                <circle cx="6" cy="4" r="0.6" fill="#fff" />
+                <circle cx="9" cy="4" r="0.6" fill="#fff" />
+                <circle cx="4.5" cy="6.5" r="0.6" fill="#fff" />
+                <circle cx="7.5" cy="6.5" r="0.6" fill="#fff" />
+                <circle cx="3" cy="9" r="0.6" fill="#fff" />
+                <circle cx="6" cy="9" r="0.6" fill="#fff" />
+                <circle cx="9" cy="9" r="0.6" fill="#fff" />
+              </g>
+            </svg>{" "}
+            in the USA
+          </p>
           <div className="flex gap-6">
             <Link href="/impressum" className="hover:text-white">
               Impressum

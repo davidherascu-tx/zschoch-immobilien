@@ -310,6 +310,21 @@ export default function Home() {
               href={site.partner.url}
               target="_blank"
               rel="noopener noreferrer"
+              aria-label={site.partner.name}
+              className="shrink-0 self-start sm:self-auto"
+            >
+              <Image
+                src="/hausundhome_logo.png"
+                alt={site.partner.name}
+                width={277}
+                height={140}
+                className="h-24 w-auto"
+              />
+            </a>
+            <a
+              href={site.partner.url}
+              target="_blank"
+              rel="noopener noreferrer"
               className="group inline-flex shrink-0 items-center gap-4 self-start rounded-full border border-black/10 py-2.5 pl-7 pr-2.5 font-medium text-neutral-950 transition hover:border-black/40 sm:self-auto"
             >
               Zur Webseite
