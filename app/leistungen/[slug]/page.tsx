@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import JsonLd from "@/app/components/JsonLd";
 import Reveal from "@/app/components/Reveal";
 import { getService, services } from "@/lib/services";
 import { site } from "@/lib/site";
@@ -16,7 +17,19 @@ export async function generateMetadata(props: PageProps<"/leistungen/[slug]">): 
   const { slug } = await props.params;
   const service = getService(slug);
   if (!service) return {};
-  return { title: service.title, description: service.summary };
+  return {
+    title: service.title,
+    description: service.summary,
+    alternates: { canonical: `/leistungen/${service.slug}` },
+    openGraph: {
+      type: "website",
+      locale: "de_DE",
+      url: `/leistungen/${service.slug}`,
+      title: `${service.title} | ${site.shortName}`,
+      description: service.summary,
+      images: [{ url: service.image, alt: service.imageAlt }],
+    },
+  };
 }
 
 function Eyebrow({ children, light }: { children: React.ReactNode; light?: boolean }) {
@@ -43,6 +56,28 @@ export default async function ServicePage(props: PageProps<"/leistungen/[slug]">
 
   return (
     <>
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Service",
+              name: service.title,
+              description: service.summary,
+              url: `${site.web}/leistungen/${service.slug}`,
+              provider: { "@id": `${site.web}/#organisation` },
+              areaServed: ["Schönefeld", "Berlin", "Brandenburg"],
+            },
+            {
+              "@type": "BreadcrumbList",
+              itemListElement: [
+                { "@type": "ListItem", position: 1, name: "Start", item: site.web },
+                { "@type": "ListItem", position: 2, name: service.title, item: `${site.web}/leistungen/${service.slug}` },
+              ],
+            },
+          ],
+        }}
+      />
       {/* Kopf */}
       <section className="bg-white pt-32 md:pt-40">
         <div className="mx-auto max-w-6xl px-5">

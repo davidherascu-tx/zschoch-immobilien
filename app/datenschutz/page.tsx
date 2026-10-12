@@ -3,6 +3,7 @@ import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Datenschutz",
+  alternates: { canonical: "/datenschutz" },
 };
 
 function Block({ title, children }: { title: string; children: React.ReactNode }) {

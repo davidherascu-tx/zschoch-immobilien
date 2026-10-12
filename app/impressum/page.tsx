@@ -3,6 +3,7 @@ import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Impressum",
+  alternates: { canonical: "/impressum" },
 };
 
 function Block({ title, children }: { title: string; children: React.ReactNode }) {
