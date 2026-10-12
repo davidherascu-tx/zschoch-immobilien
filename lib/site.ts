@@ -10,7 +10,7 @@ export const site = {
   phoneIntl: "+49 30 67890 603",
   fax: "+49 30 67890 195",
   email: "info@zschoch-immobilien.de",
-  web: "https://www.zschoch-immobilien.de",
+  web: "https://zschoch-immobilien.de",
   immoscoutUrl: "https://portal.immobilienscout24.de/ergebnisliste/69913860",
   partner: {
     name: "Haus und Home Immobilien",

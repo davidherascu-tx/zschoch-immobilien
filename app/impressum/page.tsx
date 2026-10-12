@@ -37,7 +37,7 @@ export default function Impressum() {
           <br />
           E-Mail: <a href={`mailto:${site.email}`} className="text-neutral-950 underline decoration-neutral-300 underline-offset-4 hover:decoration-neutral-950">{site.email}</a>
           <br />
-          Web: <a href={site.web} className="text-neutral-950 underline decoration-neutral-300 underline-offset-4 hover:decoration-neutral-950">www.zschoch-immobilien.de</a>
+          Web: <a href={site.web} className="text-neutral-950 underline decoration-neutral-300 underline-offset-4 hover:decoration-neutral-950">zschoch-immobilien.de</a>
         </p>
       </Block>
 
